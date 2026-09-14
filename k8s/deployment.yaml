@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: temp-converter
+  labels:
+    app: temp-converter
+spec:
+  replicas: 3                       # desired state: three identical pods
+  selector:
+    matchLabels:
+      app: temp-converter
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1                   # at most one extra pod during an update
+      maxUnavailable: 0             # never drop below the desired count
+  template:
+    metadata:
+      labels:
+        app: temp-converter
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/YOUR-GITHUB-USER/YOUR-REPO:latest   # EDIT: your GitHub username (lowercase) and repo name
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: temp-converter-config
+          resources:
+            requests: { cpu: "50m", memory: "64Mi" }
+            limits:   { cpu: "250m", memory: "128Mi" }
+          livenessProbe:            # "are you stuck?" -> restart the container
+            httpGet: { path: /healthz, port: 3000 }
+            initialDelaySeconds: 3
+            periodSeconds: 5
+            failureThreshold: 3
+          readinessProbe:           # "can you take traffic?" -> remove from the Service
+            httpGet: { path: /healthz, port: 3000 }
+            initialDelaySeconds: 3
+            periodSeconds: 5

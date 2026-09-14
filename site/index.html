@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Temperature Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Celsius to Fahrenheit Converter</h1>
+  <input id="celsius" type="number" placeholder="Enter Celsius">
+  <button id="convertBtn">Convert</button>
+  <p id="result"></p>
+  <p id="served" class="served">loading...</p>
+  <script src="script.js"></script>
+  <script>
+    // Week 12 addition: ask the server which replica served this page
+    fetch("/api/info").then(r => r.json()).then(i => {
+      document.getElementById("served").textContent =
+        i.greeting + " " + i.hostname + " (version " + i.version + ")";
+    }).catch(() => { document.getElementById("served").textContent = "static mode: no server info"; });
+  </script>
+</body>
+</html>

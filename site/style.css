@@ -1,0 +1,18 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 60px;
+}
+input, button {
+  padding: 8px;
+  font-size: 16px;
+}
+#result {
+  font-size: 20px;
+  margin-top: 20px;
+}
+.served {
+  margin-top: 40px;
+  color: #555;
+  font-size: 14px;
+}

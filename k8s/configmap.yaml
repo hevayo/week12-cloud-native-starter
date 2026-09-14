@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: temp-converter-config
+data:
+  GREETING: "Served by"
+  APP_VERSION: "v1"
