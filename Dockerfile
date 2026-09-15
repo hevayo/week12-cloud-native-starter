@@ -3,6 +3,7 @@
 FROM node:24-alpine
 # Working directory inside the image
 WORKDIR /app
+# No npm install: the server uses only Node built-ins (Jest is a dev dependency, not shipped)
 COPY package.json ./
 # The Week 11 static site and the small HTTP server
 COPY site ./site
