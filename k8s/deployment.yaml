@@ -39,3 +39,7 @@ spec:
             httpGet: { path: /healthz, port: 3000 }
             initialDelaySeconds: 3
             periodSeconds: 5
+          lifecycle:
+            preStop:                  # give the Service a few seconds to stop routing here
+              exec:                   # before the process is told to shut down (factor IX)
+                command: ["sh", "-c", "sleep 5"]
