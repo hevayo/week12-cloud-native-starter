@@ -10,7 +10,7 @@ This is the starter repository for the Week 12 lab. It is the Week 11 Temperatur
 | `tests/script.test.js` | The three Jest tests from Week 11, unchanged | 1 |
 | `server.js` | A dependency-free HTTP server: serves `site/`, plus `/healthz`, `/break`, `/api/info`, `/api/convert` | 1, 4 |
 | `Dockerfile`, `.dockerignore` | Builds the container image | 1, 2 |
-| `.github/workflows/ci-cd.yml` | Week 11 pipeline plus a `package` job that pushes the image to GHCR | 2 |
+| `.github/workflows/ci-cd.yml` | The Week 11 `test` job plus a `package` job that pushes the image to GHCR (the Week 11 GitHub Pages job is gone: the site now ships inside the image) | 2 |
 | `k8s/configmap.yaml` | Runtime configuration (`GREETING`, `APP_VERSION`) | 3, 5 |
 | `k8s/deployment.yaml` | Three replicas, rolling update strategy, liveness and readiness probes | 3 to 6 |
 | `k8s/service.yaml` | One stable address on NodePort 30080 | 3 |
