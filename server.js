@@ -8,7 +8,7 @@ const { convertCToF } = require("./site/script.js");
 
 // Twelve-factor III: configuration comes from the environment, never from code
 const PORT = Number(process.env.PORT) || 3000;
-const VERSION = process.env.APP_VERSION || "v1";
+const VERSION = "v1"; // baked into the image; Part 6 of the lab changes it and ships a new image
 const GREETING = process.env.GREETING || "Served by";
 
 let healthy = true; // flipped by /break so we can watch the platform restart us

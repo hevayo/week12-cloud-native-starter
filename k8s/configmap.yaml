@@ -4,4 +4,3 @@ metadata:
   name: temp-converter-config
 data:
   GREETING: "Served by"
-  APP_VERSION: "v1"
