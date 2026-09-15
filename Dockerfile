@@ -1,6 +1,6 @@
 # Week 12: containerise the temperature converter
 # Small base image with the Node runtime
-FROM node:20-alpine
+FROM node:24-alpine
 # Working directory inside the image
 WORKDIR /app
 COPY package.json ./
