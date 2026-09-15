@@ -22,6 +22,7 @@ spec:
       containers:
         - name: app
           image: ghcr.io/YOUR-GITHUB-USER/YOUR-REPO:latest   # EDIT: your GitHub username (lowercase) and repo name
+          imagePullPolicy: IfNotPresent   # restart from the image already on the node; do not re-pull
           ports:
             - containerPort: 3000
           envFrom:
